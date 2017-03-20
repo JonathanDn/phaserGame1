@@ -26,6 +26,7 @@ function preload() {
 }
 
 var platforms, stars, cursors, player, enemy, scoreText, score = 0;
+var direction;
 
 function create() {
 
@@ -69,17 +70,19 @@ function create() {
 	player.animations.add('left', [0, 1, 2, 3], 10, true);
 	player.animations.add('right', [5, 6, 7, 8], 10, true);
 
-	enemy = game.add.sprite(300, 350, 'baddie');
+	enemy = game.add.sprite(50, 100, 'baddie');
+	game.physics.arcade.enable(enemy);
+	enemy.body.gravity.y = 100;
 	enemy.animations.play('walk', 10, true);
 
-	game.physics.arcade.enable(enemy);
 	enemy.body.collideWorldBounds = true;
 	enemy.body.velocity.y = 300;
 	enemy.animations.add('left', [0, 1, 2, 3], 10, true);
 	enemy.animations.add('right', [5, 6, 7, 8], 10, true);
 	enemy.body.velocity.x = 100;
-	enemy.body.gravity.y = 100;
-	enemy.animations.play('right');
+
+	direction = 'right';
+	enemy.animations.play(direction);
 
 	// Starshine
 	stars = game.add.group();
@@ -102,12 +105,16 @@ function create() {
 }
 
 function update() {
-	// Collide player & stars with platforms
-	game.physics.arcade.collide(player, platforms);
-	// Collide stars and platforms:
+	// Collide player & platforms / & stars, enemy & platforms, stars & platforms
+	game.physics.arcade.collide(player, platforms, function() {
+		// console.log("player collided with platforms")
+	});
 	game.physics.arcade.collide(stars, platforms);
-	// Collide enemy with platforms:
-	game.physics.arcade.collide(enemy, platforms);
+	game.physics.arcade.collide(enemy, platforms, function() {
+		// console.log(arguments.length)
+	});
+
+
 
 	// Reset player's velocity
 	player.body.velocity.x = 0;
@@ -139,32 +146,12 @@ function update() {
 	// console.log('enemy position x', enemy.position.x);
 	if (enemy.position.x === 768) {
 		// console.log('enemy collided left')
-		wallBounce(enemyBounceVeloX, enemyBounceVeloY, enemyVeloX, 'left', 250);
-//		enemy.body.velocity.y = -enemyBounceVeloY;
-//		enemy.body.velocity.x = -enemyBounceVeloY;
-//		enemy.animations.stop();
-//		enemy.frame = 4;
-//		setTimeout(() => {
-//			enemy.body.velocity.y = enemyBounceVeloY;
-//			enemy.body.velocity.x = -enemyVeloX;
-//			enemy.animations.play('left');
-//		},250)
-
-
+		wallBounce(enemyBounceVeloX, enemyBounceVeloY, enemyVeloX, direction, 250);
 	} else if (enemy.position.x === 0) {
 		// console.log('enemy collided right')
 		enemyVeloX = -enemyVeloX;
 		enemyBounceVeloX = -enemyBounceVeloX;
-		wallBounce(enemyBounceVeloX, enemyBounceVeloY, enemyVeloX, 'right', 250);
-//		enemy.body.velocity.y = -enemyBounceVeloY;
-//		enemy.body.velocity.x = enemyBounceVeloY
-//		enemy.animations.stop();
-//		enemy.frame = 4;
-//		setTimeout(() => {
-//			enemy.body.velocity.y = enemyBounceVeloY;
-//			enemy.body.velocity.x = enemyVeloX;
-//			enemy.animations.play('right');
-//		}, 250)
+		wallBounce(enemyBounceVeloX, enemyBounceVeloY, enemyVeloX, direction, 250);
 	}
 }
 

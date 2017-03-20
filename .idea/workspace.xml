@@ -24,8 +24,8 @@
       <file leaf-file-name="part1.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/part1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="156" column="24" lean-forward="false" selection-start-line="156" selection-start-column="24" selection-end-line="156" selection-end-column="24" />
+            <state relative-caret-position="453">
+              <caret line="123" column="39" lean-forward="true" selection-start-line="123" selection-start-column="39" selection-end-line="123" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -39,6 +39,8 @@
       <find>star</find>
       <find>physics</find>
       <find>stop</find>
+      <find>enemy</find>
+      <find>collid</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -176,7 +178,7 @@
       <option name="presentableId" value="Default" />
       <updated>1489954949120</updated>
       <workItem from="1489954950602" duration="6813000" />
-      <workItem from="1490008764108" duration="4380000" />
+      <workItem from="1490008764108" duration="7069000" />
     </task>
     <task id="LOCAL-00001" summary="* made wallBounce reuse func">
       <created>1490012802765</created>
@@ -192,11 +194,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490013017932</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="* Fixed x bounce velo when collding left wall &#10;* Fixed X velo bug&#10;* made wallBounce reuse func">
+      <created>1490013296436</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1490013296436</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11193000" />
+    <option name="totallyTimeSpent" value="13882000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="960" height="1032" extended-state="0" />
@@ -229,7 +238,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="* made wallBounce reuse func" />
     <MESSAGE value="* Fixed X velo bug&#10;* made wallBounce reuse func" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Fixed X velo bug&#10;* made wallBounce reuse func" />
+    <MESSAGE value="* Fixed x bounce velo when collding left wall &#10;* Fixed X velo bug&#10;* made wallBounce reuse func" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Fixed x bounce velo when collding left wall &#10;* Fixed X velo bug&#10;* made wallBounce reuse func" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -282,8 +292,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/part1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="156" column="24" lean-forward="false" selection-start-line="156" selection-start-column="24" selection-end-line="156" selection-end-column="24" />
+        <state relative-caret-position="453">
+          <caret line="123" column="39" lean-forward="true" selection-start-line="123" selection-start-column="39" selection-end-line="123" selection-end-column="39" />
           <folding />
         </state>
       </provider>
