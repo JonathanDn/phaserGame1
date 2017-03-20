@@ -153,6 +153,7 @@ function update() {
 
 	} else if (enemy.position.x === 0) {
 		// console.log('enemy collided right')
+		enemyVeloX = -enemyVeloX;
 		wallBounce(enemyBounceVeloX, enemyBounceVeloY, enemyVeloX, 'right', 250);
 //		enemy.body.velocity.y = -enemyBounceVeloY;
 //		enemy.body.velocity.x = enemyBounceVeloY
@@ -167,7 +168,7 @@ function update() {
 }
 
 function wallBounce(bounceVeloX, bounceVeloY, veloX, direction, duration) {
-	//console.log('bouncevelox', bounceVeloX, 'bounceveloy', bounceVeloY, 'direction', direction)
+	console.log('bouncevelox', bounceVeloX, 'bounceveloy', bounceVeloY, 'direction', direction)
 	enemy.body.velocity.y = -(bounceVeloY);
 	enemy.body.velocity.x = -(bounceVeloX);
 	enemy.animations.stop();
