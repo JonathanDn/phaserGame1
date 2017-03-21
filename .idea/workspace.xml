@@ -34,8 +34,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="167" column="9" lean-forward="true" selection-start-line="167" selection-start-column="9" selection-end-line="167" selection-end-column="9" />
+            <state relative-caret-position="404">
+              <caret line="59" column="8" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -211,7 +211,7 @@
       <updated>1489954949120</updated>
       <workItem from="1489954950602" duration="6813000" />
       <workItem from="1490008764108" duration="7098000" />
-      <workItem from="1490077112973" duration="785000" />
+      <workItem from="1490077112973" duration="1170000" />
     </task>
     <task id="LOCAL-00001" summary="* made wallBounce reuse func">
       <created>1490012802765</created>
@@ -255,11 +255,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490077687591</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="* replaced spot of vars of enemy">
+      <created>1490077919778</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1490077919778</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14696000" />
+    <option name="totallyTimeSpent" value="15081000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -296,7 +303,8 @@
     <MESSAGE value="* Not fixed when flying --&gt; stop animation --&gt; and resume when touching bottom&#10;*  Fixed x bounce velo when collding left wall &#10;* Fixed X velo bug&#10;* made wallBounce reuse func" />
     <MESSAGE value="* restructured main.js" />
     <MESSAGE value="* Done - restructured main.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Done - restructured main.js" />
+    <MESSAGE value="* replaced spot of vars of enemy" />
+    <option name="LAST_COMMIT_MESSAGE" value="* replaced spot of vars of enemy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -357,8 +365,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="167" column="9" lean-forward="true" selection-start-line="167" selection-start-column="9" selection-end-line="167" selection-end-column="9" />
+        <state relative-caret-position="404">
+          <caret line="59" column="8" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
           <folding />
         </state>
       </provider>

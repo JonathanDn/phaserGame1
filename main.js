@@ -54,8 +54,10 @@ var GameState = {
 
 
 		// Two animations - walk left/right
+		// add(animationName, frames_array, frames_sec, loopBoolean)
 		player.animations.add('left', [0, 1, 2, 3], 10, true);
 		player.animations.add('right', [5, 6, 7, 8], 10, true);
+		player.animations.add('idle', [4], true);
 
 		enemy = game.add.sprite(50, 100, 'baddie');
 
