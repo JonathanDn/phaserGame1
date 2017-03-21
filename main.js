@@ -5,7 +5,7 @@
 
 var platforms, stars, cursors, player, scoreText, score = 0, direction;
 
-var enemy, enemyVeloX = 100, enemyBounceVeloY = 100, enemyBounceVeloX = 30;
+var enemy, enemyVeloRightX = 100, enemyVeloLeftX = -100;
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO);
 var GameState = {
@@ -143,10 +143,14 @@ var GameState = {
 		// console.log('enemy position x', enemy.position.x);
 		if (enemy.position.x === 768) {
 			// console.log('enemy collided right')
-			wallBounce(enemyBounceVeloX, enemyBounceVeloY, enemyVeloX, direction, 250);
+			enemy.animations.stop();
+			enemy.body.velocity.x = enemyVeloLeftX;
+			enemy.animations.play('left');
 		} else if (enemy.position.x === 0) {
 			// console.log('enemy collided left')
-			wallBounce(enemyBounceVeloX, enemyBounceVeloY, enemyVeloX, direction, 250);
+			enemy.animations.stop();
+			enemy.body.velocity.x = enemyVeloRightX;
+			enemy.animations.play('right');
 		}
 	}
 };
@@ -156,27 +160,27 @@ game.state.add('GameState', GameState);
 // Launch game:
 game.state.start('GameState');
 
-function wallBounce(bounceVeloX, bounceVeloY, veloX, direction, duration) {
-	// console.log('bouncevelox', bounceVeloX, 'bounceveloy', bounceVeloY, 'direction', direction)
-	console.log('veloX', veloX, 'bounceVeloX', bounceVeloX);
-	enemy.body.velocity.y = -(bounceVeloY);
-	enemy.body.velocity.x = -(bounceVeloX);
-	console.log('bounce X', enemy.body.velocity.x)
-	enemy.animations.stop();
-	enemy.frame = 4;
-	setTimeout(() => {
-		enemy.body.velocity.y = bounceVeloY;
-		enemy.body.velocity.x = -(veloX);
-		if (direction === 'left') {
-			// enemy.animations.play('right');
-			// direction = 'right';
-		} else {
-			// enemy.animations.play('left');
-			// direction = 'left';
-		}
-	}, duration)
-	console.log('finished bounce')
-}
+// function wallBounce(bounceVeloX, bounceVeloY, veloX, direction, duration) {
+// 	// console.log('bouncevelox', bounceVeloX, 'bounceveloy', bounceVeloY, 'direction', direction)
+// 	console.log('veloX', veloX, 'bounceVeloX', bounceVeloX);
+// 	enemy.body.velocity.y = -(bounceVeloY);
+// 	enemy.body.velocity.x = -(bounceVeloX);
+// 	console.log('bounce X', enemy.body.velocity.x)
+// 	enemy.animations.stop();
+// 	enemy.frame = 4;
+// 	setTimeout(() => {
+// 		enemy.body.velocity.y = bounceVeloY;
+// 		enemy.body.velocity.x = -(veloX);
+// 		if (direction === 'left') {
+// 			// enemy.animations.play('right');
+// 			// direction = 'right';
+// 		} else {
+// 			// enemy.animations.play('left');
+// 			// direction = 'left';
+// 		}
+// 	}, duration)
+// 	console.log('finished bounce')
+// }
 
 function collectStar(player, star) {
 	// Remove star from screen for now:
