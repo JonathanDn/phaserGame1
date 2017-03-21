@@ -2,6 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9270026a-2437-42a2-9a47-226f5f39df7f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/part2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/part3.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/part4.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/part5.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/part6.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/part7.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/part8.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/part9.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tutorial.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/part1.html" afterPath="$PROJECT_DIR$/part1.html" />
     </list>
@@ -21,11 +31,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="part1.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="part1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/part1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="123" column="39" lean-forward="true" selection-start-line="123" selection-start-column="39" selection-end-line="123" selection-end-column="39" />
+            <state relative-caret-position="264">
+              <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="47" lean-forward="true" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -51,6 +71,7 @@
       <list>
         <option value="$PROJECT_DIR$/part7.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/part1.html" />
       </list>
     </option>
@@ -78,7 +99,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -91,7 +112,24 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pJohnny" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pJohnny" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
@@ -102,6 +140,8 @@
     <property name="SearchEverywhereHistoryKey" value="part9&#9;FILE&#9;file://C:/Users/user/Desktop/phaser_tutorial_02/part9.html" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -178,7 +218,8 @@
       <option name="presentableId" value="Default" />
       <updated>1489954949120</updated>
       <workItem from="1489954950602" duration="6813000" />
-      <workItem from="1490008764108" duration="7069000" />
+      <workItem from="1490008764108" duration="7098000" />
+      <workItem from="1490077112973" duration="166000" />
     </task>
     <task id="LOCAL-00001" summary="* made wallBounce reuse func">
       <created>1490012802765</created>
@@ -201,17 +242,24 @@
       <option name="project" value="LOCAL" />
       <updated>1490013296436</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="* Not fixed when flying --&gt; stop animation --&gt; and resume when touching bottom&#10;*  Fixed x bounce velo when collding left wall &#10;* Fixed X velo bug&#10;* made wallBounce reuse func">
+      <created>1490016002228</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1490016002228</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13882000" />
+    <option name="totallyTimeSpent" value="14077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="960" height="1032" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26705447" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.55312157" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -239,7 +287,8 @@
     <MESSAGE value="* made wallBounce reuse func" />
     <MESSAGE value="* Fixed X velo bug&#10;* made wallBounce reuse func" />
     <MESSAGE value="* Fixed x bounce velo when collding left wall &#10;* Fixed X velo bug&#10;* made wallBounce reuse func" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Fixed x bounce velo when collding left wall &#10;* Fixed X velo bug&#10;* made wallBounce reuse func" />
+    <MESSAGE value="* Not fixed when flying --&gt; stop animation --&gt; and resume when touching bottom&#10;*  Fixed x bounce velo when collding left wall &#10;* Fixed X velo bug&#10;* made wallBounce reuse func" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Not fixed when flying --&gt; stop animation --&gt; and resume when touching bottom&#10;*  Fixed x bounce velo when collding left wall &#10;* Fixed X velo bug&#10;* made wallBounce reuse func" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -292,8 +341,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/part1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="123" column="39" lean-forward="true" selection-start-line="123" selection-start-column="39" selection-end-line="123" selection-end-column="39" />
+        <state relative-caret-position="264">
+          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="47" lean-forward="true" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
           <folding />
         </state>
       </provider>
