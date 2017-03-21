@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9270026a-2437-42a2-9a47-226f5f39df7f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/main.js" />
     </list>
@@ -35,8 +34,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+            <state relative-caret-position="502">
+              <caret line="167" column="9" lean-forward="true" selection-start-line="167" selection-start-column="9" selection-end-line="167" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -212,7 +211,7 @@
       <updated>1489954949120</updated>
       <workItem from="1489954950602" duration="6813000" />
       <workItem from="1490008764108" duration="7098000" />
-      <workItem from="1490077112973" duration="564000" />
+      <workItem from="1490077112973" duration="785000" />
     </task>
     <task id="LOCAL-00001" summary="* made wallBounce reuse func">
       <created>1490012802765</created>
@@ -249,11 +248,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490077289404</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="* Done - restructured main.js">
+      <created>1490077687591</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1490077687591</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14475000" />
+    <option name="totallyTimeSpent" value="14696000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -289,7 +295,8 @@
     <MESSAGE value="* Fixed x bounce velo when collding left wall &#10;* Fixed X velo bug&#10;* made wallBounce reuse func" />
     <MESSAGE value="* Not fixed when flying --&gt; stop animation --&gt; and resume when touching bottom&#10;*  Fixed x bounce velo when collding left wall &#10;* Fixed X velo bug&#10;* made wallBounce reuse func" />
     <MESSAGE value="* restructured main.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="* restructured main.js" />
+    <MESSAGE value="* Done - restructured main.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Done - restructured main.js" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -350,8 +357,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        <state relative-caret-position="502">
+          <caret line="167" column="9" lean-forward="true" selection-start-line="167" selection-start-column="9" selection-end-line="167" selection-end-column="9" />
           <folding />
         </state>
       </provider>

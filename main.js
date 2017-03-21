@@ -1,5 +1,7 @@
 
-var platforms, stars, cursors, player, enemy, scoreText, score = 0, direction;
+var platforms, stars, cursors, player, scoreText, score = 0, direction;
+
+var enemy, enemyVeloX = 100, enemyBounceVeloY = 100, enemyBounceVeloX = 30;
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO);
 var GameState = {
@@ -31,8 +33,11 @@ var GameState = {
 
 		// Create two ledges
 		var ledge = platforms.create(400, 400, 'ground')
+
 		ledge.body.immovable = true;
+
 		ledge = platforms.create(-150, 250, 'ground');
+
 		ledge.body.immovable = true;
 
 		// The Player & settings
@@ -42,7 +47,9 @@ var GameState = {
 		game.physics.arcade.enable(player);
 		// Player Physics Properties. slight bounce
 		player.body.bounce.y = 0.2;
+
 		player.body.gravity.y = 300;
+
 		player.body.collideWorldBounds = true;
 
 
@@ -51,14 +58,21 @@ var GameState = {
 		player.animations.add('right', [5, 6, 7, 8], 10, true);
 
 		enemy = game.add.sprite(50, 100, 'baddie');
+
 		game.physics.arcade.enable(enemy);
+
 		enemy.body.gravity.y = 100;
+
 		enemy.animations.play('walk', 10, true);
 
 		enemy.body.collideWorldBounds = true;
+
 		enemy.body.velocity.y = 300;
+
 		enemy.animations.add('left', [0, 1, 2, 3], 10, true);
+
 		enemy.animations.add('right', [5, 6, 7, 8], 10, true);
+
 		enemy.body.velocity.x = 100;
 
 		direction = 'right';
@@ -66,7 +80,9 @@ var GameState = {
 
 		// Starshine
 		stars = game.add.group();
+
 		stars.enableBody = true;
+
 		// Create 12 Stars:
 		for (var i = 0; i < 12; i++) {
 			// add star
@@ -118,9 +134,6 @@ var GameState = {
 
 
 		// Check Enemy hit bounds
-		var enemyVeloX = 100;
-		var enemyBounceVeloY = 100;
-		var enemyBounceVeloX = 30;
 		// console.log('enemy position x', enemy.position.x);
 		if (enemy.position.x === 768) {
 			// console.log('enemy collided left')
