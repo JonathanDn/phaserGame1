@@ -139,6 +139,9 @@ var GameState = {
 		game.physics.arcade.overlap(player, stars, collectStar, null, this);
 
 
+		// Check Player hit Enemy
+		game.physics.arcade.overlap(player, enemy, collisionHandler, null, this);
+
 		// Check Enemy hit bounds
 		// console.log('enemy position x', enemy.position.x);
 		if (enemy.position.x === 768) {
@@ -160,32 +163,38 @@ game.state.add('GameState', GameState);
 // Launch game:
 game.state.start('GameState');
 
-// function wallBounce(bounceVeloX, bounceVeloY, veloX, direction, duration) {
-// 	// console.log('bouncevelox', bounceVeloX, 'bounceveloy', bounceVeloY, 'direction', direction)
-// 	console.log('veloX', veloX, 'bounceVeloX', bounceVeloX);
-// 	enemy.body.velocity.y = -(bounceVeloY);
-// 	enemy.body.velocity.x = -(bounceVeloX);
-// 	console.log('bounce X', enemy.body.velocity.x)
-// 	enemy.animations.stop();
-// 	enemy.frame = 4;
-// 	setTimeout(() => {
-// 		enemy.body.velocity.y = bounceVeloY;
-// 		enemy.body.velocity.x = -(veloX);
-// 		if (direction === 'left') {
-// 			// enemy.animations.play('right');
-// 			// direction = 'right';
-// 		} else {
-// 			// enemy.animations.play('left');
-// 			// direction = 'left';
-// 		}
-// 	}, duration)
-// 	console.log('finished bounce')
-// }
-
 function collectStar(player, star) {
 	// Remove star from screen for now:
 	star.kill();
 	// Add & update score
 	score += 10;
 	scoreText.text = "Score:" + score;
+}
+
+function collisionHandler(player, enemy) {
+	// console.log('player collided with enemy');
+	// console.log('player x and y', player.position.x, player.position.y);
+	// console.log('enemy x and y', enemy.position.x, enemy.position.y);
+	// console.log(player.body.height)
+	let playerY = Math.floor(player.body.position.y);
+	let enemyY = Math.floor(enemy.body.position.y);
+	// console.log(enemyY, '=', playerY - playerHeight);
+	// To indicate player hitting enemy from above --> check if playerY is lower then enemyY
+	if (playerY < enemyY && (enemyY - playerY > 40)) {
+
+		// TODO - all this enter to function - handleEnemyKill();
+		enemy.body.velocity.x = 0;
+		enemy.animations.stop();
+		enemy.frame = 4;
+		enemy.angle += 90;
+		enemy.position.y += ((enemy.height / 2) + 5);
+		enemy.enableBody = false;
+		// setTimeout(() => {
+		// 	// enemy.kill();
+		// },1000)
+
+		// enemy.kill();
+		// console.log('py', playerY, 'eY', enemyY)
+		// console.log('player collide from the top')
+	}
 }

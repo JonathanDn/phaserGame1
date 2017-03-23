@@ -34,8 +34,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="141" column="33" lean-forward="true" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="33" />
+            <state relative-caret-position="418">
+              <caret line="184" column="65" lean-forward="false" selection-start-line="184" selection-start-column="65" selection-end-line="184" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -52,6 +52,8 @@
       <find>enemy</find>
       <find>collid</find>
       <find>duration</find>
+      <find>bounce</find>
+      <find>overla</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -90,7 +92,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -103,24 +105,7 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pJohnny" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pJohnny" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
@@ -211,7 +196,8 @@
       <workItem from="1489954950602" duration="6813000" />
       <workItem from="1490008764108" duration="7098000" />
       <workItem from="1490077112973" duration="3568000" />
-      <workItem from="1490100093939" duration="400000" />
+      <workItem from="1490100093939" duration="432000" />
+      <workItem from="1490295454472" duration="3702000" />
     </task>
     <task id="LOCAL-00001" summary="* made wallBounce reuse func">
       <created>1490012802765</created>
@@ -276,11 +262,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490080742395</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="* back to just flipping velocity.x and animation direction">
+      <created>1490100513514</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1490100513514</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17879000" />
+    <option name="totallyTimeSpent" value="21613000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="960" height="1032" extended-state="0" />
@@ -320,13 +313,22 @@
     <MESSAGE value="* replaced spot of vars of enemy" />
     <MESSAGE value="* Added idle animation for sprite" />
     <MESSAGE value="* Bug with collision with walls" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Bug with collision with walls" />
+    <MESSAGE value="* back to just flipping velocity.x and animation direction" />
+    <option name="LAST_COMMIT_MESSAGE" value="* back to just flipping velocity.x and animation direction" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/part1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/part1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -359,7 +361,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="1" column="12" lean-forward="false" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -373,8 +374,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="141" column="33" lean-forward="true" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="33" />
+        <state relative-caret-position="418">
+          <caret line="184" column="65" lean-forward="false" selection-start-line="184" selection-start-column="65" selection-end-line="184" selection-end-column="65" />
           <folding />
         </state>
       </provider>
