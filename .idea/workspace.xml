@@ -34,8 +34,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="184" column="65" lean-forward="false" selection-start-line="184" selection-start-column="65" selection-end-line="184" selection-end-column="65" />
+            <state relative-caret-position="440">
+              <caret line="185" column="114" lean-forward="false" selection-start-line="185" selection-start-column="114" selection-end-line="185" selection-end-column="114" />
               <folding />
             </state>
           </provider>
@@ -197,7 +197,7 @@
       <workItem from="1490008764108" duration="7098000" />
       <workItem from="1490077112973" duration="3568000" />
       <workItem from="1490100093939" duration="432000" />
-      <workItem from="1490295454472" duration="3702000" />
+      <workItem from="1490295454472" duration="3773000" />
     </task>
     <task id="LOCAL-00001" summary="* made wallBounce reuse func">
       <created>1490012802765</created>
@@ -269,11 +269,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490100513514</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="* killed enemy in a cool way for now">
+      <created>1490299172505</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1490299172505</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21613000" />
+    <option name="totallyTimeSpent" value="21684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="960" height="1032" extended-state="0" />
@@ -314,7 +321,8 @@
     <MESSAGE value="* Added idle animation for sprite" />
     <MESSAGE value="* Bug with collision with walls" />
     <MESSAGE value="* back to just flipping velocity.x and animation direction" />
-    <option name="LAST_COMMIT_MESSAGE" value="* back to just flipping velocity.x and animation direction" />
+    <MESSAGE value="* killed enemy in a cool way for now" />
+    <option name="LAST_COMMIT_MESSAGE" value="* killed enemy in a cool way for now" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -374,8 +382,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="184" column="65" lean-forward="false" selection-start-line="184" selection-start-column="65" selection-end-line="184" selection-end-column="65" />
+        <state relative-caret-position="440">
+          <caret line="185" column="114" lean-forward="false" selection-start-line="185" selection-start-column="114" selection-end-line="185" selection-end-column="114" />
           <folding />
         </state>
       </provider>

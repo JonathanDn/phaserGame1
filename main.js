@@ -183,6 +183,7 @@ function collisionHandler(player, enemy) {
 	if (playerY < enemyY && (enemyY - playerY > 40)) {
 
 		// TODO - all this enter to function - handleEnemyKill();
+		// TODO - spawn ++ enemy when enemy is killed and let the body stay. this way increasing the difficulty :)
 		enemy.body.velocity.x = 0;
 		enemy.animations.stop();
 		enemy.frame = 4;
