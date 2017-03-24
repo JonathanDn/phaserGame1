@@ -115,25 +115,8 @@ var GameState = {
 			// console.log(arguments.length)
 		});
 
-
 		// Reset player's velocity
-		player.body.velocity.x = 0;
-
-		if (cursors.left.isDown) {
-			player.body.velocity.x = -150;
-			player.animations.play('left');
-		} else if (cursors.right.isDown) {
-			player.body.velocity.x = 150;
-			player.animations.play('right');
-		} else {
-			player.animations.stop();
-			player.frame = 4;
-		}
-
-		// Allow player to jump if touching ground
-		if (cursors.up.isDown && player.body.touching.down) {
-			player.body.velocity.y = -350;
-		}
+		activateControls(player);
 
 		// Check Player take star:
 		game.physics.arcade.overlap(player, stars, collectStar, null, this);
@@ -163,6 +146,24 @@ game.state.add('GameState', GameState);
 // Launch game:
 game.state.start('GameState');
 
+function activateControls(sprite) {
+	sprite.body.velocity.x = 0;
+	if (cursors.left.isDown) {
+		sprite.body.velocity.x = -150;
+		sprite.animations.play('left');
+	} else if (cursors.right.isDown) {
+		sprite.body.velocity.x = 150;
+		sprite.animations.play('right');
+	} else {
+		player.animations.stop();
+		sprite.frame = 4;
+	}
+	// Allow player to jump if touching ground
+	if (cursors.up.isDown && player.body.touching.down) {
+		bounceUp(player);
+	}
+}
+
 function collectStar(player, star) {
 	// Remove star from screen for now:
 	star.kill();
@@ -184,12 +185,15 @@ function collisionHandler(player, enemy) {
 
 		// TODO - all this enter to function - handleEnemyKill();
 		// TODO - spawn ++ enemy when enemy is killed and let the body stay. this way increasing the difficulty :)
+		// TODO - player bounce up when killing the enemy, re-useable func
 		enemy.body.velocity.x = 0;
 		enemy.animations.stop();
 		enemy.frame = 4;
 		enemy.angle += 90;
 		enemy.position.y += ((enemy.height / 2) + 5);
 		enemy.enableBody = false;
+
+		bounceUp(player);
 		// setTimeout(() => {
 		// 	// enemy.kill();
 		// },1000)
@@ -198,4 +202,9 @@ function collisionHandler(player, enemy) {
 		// console.log('py', playerY, 'eY', enemyY)
 		// console.log('player collide from the top')
 	}
+}
+
+function bounceUp(sprite) {
+	sprite.body.velocity.x = 0;
+	sprite.body.velocity.y = -350;
 }
