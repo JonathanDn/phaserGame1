@@ -183,9 +183,6 @@ function collisionHandler(player, enemy) {
 	// To indicate player hitting enemy from above --> check if playerY is lower then enemyY
 	if (playerY < enemyY && (enemyY - playerY > 40)) {
 
-		// TODO - all this enter to function - handleEnemyKill();
-		// TODO - spawn ++ enemy when enemy is killed and let the body stay. this way increasing the difficulty :)
-		// TODO - player bounce up when killing the enemy, re-useable func
 		enemy.body.velocity.x = 0;
 		enemy.animations.stop();
 		enemy.frame = 4;
