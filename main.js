@@ -183,15 +183,32 @@ function collisionHandler(player, enemy) {
 function handleHorizontalCollision(sprite1, sprite2) {
 	let sprite1X = Math.floor(sprite1.body.position.x);
 	let sprite2X = Math.floor(sprite2.body.position.x);
-
-	// Example: Enemy-sprite2 colliding with Player-Sprite1
-	if ((sprite2X - sprite1X) === 30) {
-		if (isEnemyDead) {
-			console.log("colliding with enemy body")
-		}
-		// console.log('sprite2 collided with sprite1 from right')
-	} else if ((sprite2X - sprite1X) === -30) {
-		// console.log('sprite2 collided with sprite1 from left')
+	// console.log('enemy', isEnemyDead, 'colliding with body', sprite2X - sprite1X)
+	// Example: Enemy-sprite2 colliding with Player-Sprite1, collision from LEFT or RIGHT
+	if ((sprite2X - sprite1X) === 30 || (sprite2X - sprite1X) === 29 && isEnemyDead) {
+			console.log('colliding with body from left')
+			console.log('enemy body', enemy.body)
+			sprite2.immovable = false;
+			sprite2.enableBody = true;
+			sprite2.animations.stop();
+			sprite2.body.velocity.x = 50;
+			sprite2.body.gravity.Y = 300;
+			setTimeout(() => {
+				sprite2.body.velocity = 0;
+				sprite2.body.gravity.y = 0;
+			},250)
+	} else if ((sprite2X - sprite1X) === -30 || (sprite2X - sprite1X) === -29 && isEnemyDead){
+			console.log('colliding with body from right')
+			console.log('enemy body', enemy.body)
+			sprite2.immovable = false;
+			sprite2.enableBody = true;
+			sprite2.animations.stop();
+			sprite2.body.velocity.x = -50;
+			sprite2.body.gravity.Y = 300;
+			setTimeout(() => {
+				sprite2.body.velocity = 0;
+				sprite2.body.gravity.y = 0;
+			},250)
 	}
 }
 
@@ -210,6 +227,7 @@ function handleTopCollision(sprite1, sprite2) {
 			sprite2.enableBody = false;
 			isEnemyDead = true;
 			bounceUp(sprite1);
+			// console.log('enemy new x ', enemy.body.position.x, 'e width', enemy.width)
 		}
 	}
 }
