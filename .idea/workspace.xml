@@ -34,8 +34,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="203" column="8" lean-forward="true" selection-start-line="203" selection-start-column="8" selection-end-line="203" selection-end-column="8" />
+            <state relative-caret-position="494">
+              <caret line="212" column="9" lean-forward="false" selection-start-line="212" selection-start-column="9" selection-end-line="212" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -227,7 +227,7 @@
       <workItem from="1490077112973" duration="3568000" />
       <workItem from="1490100093939" duration="432000" />
       <workItem from="1490295454472" duration="4413000" />
-      <workItem from="1490385173243" duration="2996000" />
+      <workItem from="1490385173243" duration="3574000" />
     </task>
     <task id="LOCAL-00001" summary="* made wallBounce reuse func">
       <created>1490012802765</created>
@@ -341,11 +341,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490450333768</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="* Created handleHorizontalCollision(sprite1, sprite2) function ans using it with enemy and player&#10;* Added indication of horizontal collision between enemy and player left and right&#10;">
+      <created>1490450745070</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1490450745070</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25320000" />
+    <option name="totallyTimeSpent" value="25898000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="960" height="1032" extended-state="0" />
@@ -392,7 +399,8 @@
     <MESSAGE value="* Added todo.js" />
     <MESSAGE value="* Added todo.js, added task" />
     <MESSAGE value="* Added indication of horizontal collision between enemy and player left and right&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Added indication of horizontal collision between enemy and player left and right&#10;" />
+    <MESSAGE value="* Created handleHorizontalCollision(sprite1, sprite2) function ans using it with enemy and player&#10;* Added indication of horizontal collision between enemy and player left and right&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Created handleHorizontalCollision(sprite1, sprite2) function ans using it with enemy and player&#10;* Added indication of horizontal collision between enemy and player left and right&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -468,8 +476,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="203" column="8" lean-forward="true" selection-start-line="203" selection-start-column="8" selection-end-line="203" selection-end-column="8" />
+        <state relative-caret-position="494">
+          <caret line="212" column="9" lean-forward="false" selection-start-line="212" selection-start-column="9" selection-end-line="212" selection-end-column="9" />
           <folding />
         </state>
       </provider>

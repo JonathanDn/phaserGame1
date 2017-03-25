@@ -5,7 +5,7 @@
 
 var platforms, stars, cursors, player, scoreText, score = 0, direction;
 
-var enemy, enemyVeloRightX = 100, enemyVeloLeftX = -100;
+var enemy, enemyVeloRightX = 100, enemyVeloLeftX = -100, isEnemyDead = false;
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO);
 var GameState = {
@@ -173,23 +173,8 @@ function collectStar(player, star) {
 }
 
 function collisionHandler(player, enemy) {
-	let playerY = Math.floor(player.body.position.y);
-	let enemyY = Math.floor(enemy.body.position.y);
-	let isEnemyDead = false;
-
 	// Top Collision of Enemy:
-	// To indicate player hitting enemy from above --> check if playerY is lower then enemyY
-	if (playerY < enemyY && (enemyY - playerY > 40)) {
-		isEnemyDead = true;
-		enemy.body.velocity.x = 0;
-		enemy.animations.stop();
-		enemy.frame = 4;
-		enemy.angle += 90;
-		enemy.position.y += ((enemy.height / 2) + 5);
-		enemy.enableBody = false;
-		enemy.body.immovable = false;
-		bounceUp(player);
-	}
+	handleTopCollision(player, enemy);
 
 	// Side Collision of Enemy:
 	handleHorizontalCollision(player, enemy);
@@ -201,9 +186,31 @@ function handleHorizontalCollision(sprite1, sprite2) {
 
 	// Example: Enemy-sprite2 colliding with Player-Sprite1
 	if ((sprite2X - sprite1X) === 30) {
-		console.log('sprite2 collided with sprite1 from right')
+		if (isEnemyDead) {
+			console.log("colliding with enemy body")
+		}
+		// console.log('sprite2 collided with sprite1 from right')
 	} else if ((sprite2X - sprite1X) === -30) {
-		console.log('sprite2 collided with sprite1 from left')
+		// console.log('sprite2 collided with sprite1 from left')
+	}
+}
+
+function handleTopCollision(sprite1, sprite2) {
+	sprite1Y = Math.floor(player.body.position.y);
+	sprite2Y = Math.floor(enemy.body.position.y);
+
+	if (isEnemyDead === false) {
+		// Example: Player-sprite1 colliding with Enemy-sprite1 from the top part of sprite1.
+		if (sprite1Y < sprite2Y && (sprite2Y - sprite1Y > 40)) {
+			sprite2.body.velocity.x = 0;
+			sprite2.animations.stop();
+			sprite2.frame = 4;
+			sprite2.angle += 90;
+			sprite2.position.y += ((sprite2.height / 2) + 5);
+			sprite2.enableBody = false;
+			isEnemyDead = true;
+			bounceUp(sprite1);
+		}
 	}
 }
 
