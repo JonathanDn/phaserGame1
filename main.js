@@ -177,27 +177,37 @@ function collisionHandler(player, enemy) {
 	// console.log('player x and y', player.position.x, player.position.y);
 	// console.log('enemy x and y', enemy.position.x, enemy.position.y);
 	// console.log(player.body.height)
+
+	// Top Collision of Enemy:
 	let playerY = Math.floor(player.body.position.y);
 	let enemyY = Math.floor(enemy.body.position.y);
 	// console.log(enemyY, '=', playerY - playerHeight);
 	// To indicate player hitting enemy from above --> check if playerY is lower then enemyY
 	if (playerY < enemyY && (enemyY - playerY > 40)) {
-
 		enemy.body.velocity.x = 0;
 		enemy.animations.stop();
 		enemy.frame = 4;
 		enemy.angle += 90;
 		enemy.position.y += ((enemy.height / 2) + 5);
 		enemy.enableBody = false;
-
+		enemy.body.immovable = false;
 		bounceUp(player);
 		// setTimeout(() => {
 		// 	// enemy.kill();
 		// },1000)
-
 		// enemy.kill();
 		// console.log('py', playerY, 'eY', enemyY)
 		// console.log('player collide from the top')
+	}
+
+	// Side Collision of Enemy:
+	let playerX = Math.floor(player.body.position.x);
+	let enemyX = Math.floor(enemy.body.position.x);
+	// console.log('e/p gap', playerX - enemyX);
+	if ((enemyX - playerX) === 30) {
+		console.log('Enemy collided with player from right')
+	} else if ((enemyX - playerX) === -30) {
+		console.log('Enemy collided with player from left')
 	}
 }
 
