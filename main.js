@@ -5,7 +5,9 @@
 
 var platforms, stars, cursors, player, scoreText, score = 0, direction;
 
-var enemy, enemyVeloRightX = 100, enemyVeloLeftX = -100, isEnemyDead = false;
+var enemy, enemyVeloRightX = 100, enemyVeloLeftX = -100, isEnemyDead = false, isEnemyKicked = false;
+
+var tween;
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO);
 var GameState = {
@@ -104,6 +106,11 @@ var GameState = {
 
 		// Game Controls
 		cursors = game.input.keyboard.createCursorKeys();
+
+		// Tween: not working now...
+		// tween = game.add.tween(enemy).to( {x: '-50'}, 500, Phaser.Easing.Linear.None, false, 0, 0);
+		// tween.onComplete.add(function(){tween.stop()});
+
 	},
 	update: function () {
 		// Collide player & platforms / & stars, enemy & platforms, stars & platforms
@@ -161,6 +168,8 @@ function activateControls(sprite) {
 	// Allow player to jump if touching ground
 	if (cursors.up.isDown && player.body.touching.down) {
 		bounceUp(player);
+	} else if (cursors.down.isDown) {
+		sprite.body.velocity.y = 350;
 	}
 }
 
@@ -186,29 +195,32 @@ function handleHorizontalCollision(sprite1, sprite2) {
 	// console.log('enemy', isEnemyDead, 'colliding with body', sprite2X - sprite1X)
 	// Example: Enemy-sprite2 colliding with Player-Sprite1, collision from LEFT or RIGHT
 	if ((sprite2X - sprite1X) === 30 || (sprite2X - sprite1X) === 29 && isEnemyDead) {
-			console.log('colliding with body from left')
-			console.log('enemy body', enemy.body)
-			sprite2.immovable = false;
-			sprite2.enableBody = true;
-			sprite2.animations.stop();
-			sprite2.body.velocity.x = 50;
-			sprite2.body.gravity.Y = 300;
-			setTimeout(() => {
-				sprite2.body.velocity = 0;
-				sprite2.body.gravity.y = 0;
-			},250)
+			console.log('colliding with body from left');
+			// tween.start();
+			// tween.onComplete.add(delayBeforeAnotherKick, this);
+			// tween.onComplete.removeAll();
+			// console.log('enemy body', enemy.body)
+			// sprite2.immovable = false;
+			// sprite2.enableBody = true;
+			// sprite2.animations.stop();
+			// sprite2.body.velocity.x = 50;
+			// sprite2.body.gravity.Y = 300;
+			// setTimeout(() => {
+			// 	sprite2.body.velocity = 0;
+			// 	sprite2.body.gravity.y = 0;
+			// },250)
 	} else if ((sprite2X - sprite1X) === -30 || (sprite2X - sprite1X) === -29 && isEnemyDead){
 			console.log('colliding with body from right')
-			console.log('enemy body', enemy.body)
-			sprite2.immovable = false;
-			sprite2.enableBody = true;
-			sprite2.animations.stop();
-			sprite2.body.velocity.x = -50;
-			sprite2.body.gravity.Y = 300;
-			setTimeout(() => {
-				sprite2.body.velocity = 0;
-				sprite2.body.gravity.y = 0;
-			},250)
+			// console.log('enemy body', enemy.body)
+			// sprite2.immovable = false;
+			// sprite2.enableBody = true;
+			// sprite2.animations.stop();
+			// sprite2.body.velocity.x = -50;
+			// sprite2.body.gravity.Y = 300;
+			// setTimeout(() => {
+			// 	sprite2.body.velocity = 0;
+			// 	sprite2.body.gravity.y = 0;
+			// },250)
 	}
 }
 

@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9270026a-2437-42a2-9a47-226f5f39df7f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todos.js" afterPath="$PROJECT_DIR$/todos.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,8 +25,8 @@
       <file leaf-file-name="part1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/part1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+            <state relative-caret-position="220">
+              <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -33,8 +35,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="205" column="42" lean-forward="true" selection-start-line="205" selection-start-column="42" selection-end-line="205" selection-end-column="42" />
+            <state relative-caret-position="230">
+              <caret line="171" column="33" lean-forward="false" selection-start-line="171" selection-start-column="33" selection-end-line="171" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -43,8 +45,8 @@
       <file leaf-file-name="todos.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todos.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="108" lean-forward="false" selection-start-line="8" selection-start-column="108" selection-end-line="8" selection-end-column="108" />
+            <state relative-caret-position="198">
+              <caret line="9" column="49" lean-forward="false" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -97,10 +99,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1050" />
+    <option name="width" value="1254" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -229,7 +229,8 @@
       <workItem from="1490077112973" duration="3568000" />
       <workItem from="1490100093939" duration="432000" />
       <workItem from="1490295454472" duration="4413000" />
-      <workItem from="1490385173243" duration="5982000" />
+      <workItem from="1490385173243" duration="7043000" />
+      <workItem from="1490553104677" duration="3813000" />
     </task>
     <task id="LOCAL-00001" summary="* made wallBounce reuse func">
       <created>1490012802765</created>
@@ -364,14 +365,21 @@
       <option name="project" value="LOCAL" />
       <updated>1490455416952</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="* still have bug with side collision enemy and player">
+      <created>1490455470560</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1490455470560</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28306000" />
+    <option name="totallyTimeSpent" value="33180000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="0" y="0" width="1254" height="1032" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15917504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -417,13 +425,22 @@
     <MESSAGE value="* Added indication of horizontal collision between enemy and player left and right&#10;" />
     <MESSAGE value="* Created handleHorizontalCollision(sprite1, sprite2) function ans using it with enemy and player&#10;* Added indication of horizontal collision between enemy and player left and right&#10;" />
     <MESSAGE value="* Now when enemy is dead, can't move it again - solved the bug&#10;* Created handleHorizontalCollision(sprite1, sprite2) function ans using it with enemy and player&#10;* Added indication of horizontal collision between enemy and player left and right&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Now when enemy is dead, can't move it again - solved the bug&#10;* Created handleHorizontalCollision(sprite1, sprite2) function ans using it with enemy and player&#10;* Added indication of horizontal collision between enemy and player left and right&#10;" />
+    <MESSAGE value="* still have bug with side collision enemy and player" />
+    <option name="LAST_COMMIT_MESSAGE" value="* still have bug with side collision enemy and player" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/part1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/part1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -475,26 +492,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todos.js">
+    <entry file="file://$PROJECT_DIR$/part1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="108" lean-forward="false" selection-start-line="8" selection-start-column="108" selection-end-line="8" selection-end-column="108" />
+        <state relative-caret-position="220">
+          <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/part1.html">
+    <entry file="file://$PROJECT_DIR$/todos.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+        <state relative-caret-position="198">
+          <caret line="9" column="49" lean-forward="false" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="205" column="42" lean-forward="true" selection-start-line="205" selection-start-column="42" selection-end-line="205" selection-end-column="42" />
+        <state relative-caret-position="230">
+          <caret line="171" column="33" lean-forward="false" selection-start-line="171" selection-start-column="33" selection-end-line="171" selection-end-column="33" />
           <folding />
         </state>
       </provider>
