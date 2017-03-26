@@ -35,8 +35,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="171" column="33" lean-forward="false" selection-start-line="171" selection-start-column="33" selection-end-line="171" selection-end-column="33" />
+            <state relative-caret-position="266">
+              <caret line="240" column="56" lean-forward="true" selection-start-line="240" selection-start-column="56" selection-end-line="240" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -45,8 +45,8 @@
       <file leaf-file-name="todos.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todos.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="49" lean-forward="false" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+            <state relative-caret-position="22">
+              <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -58,7 +58,6 @@
     <findStrings>
       <find>collectStar</find>
       <find>star</find>
-      <find>physics</find>
       <find>stop</find>
       <find>enemy</find>
       <find>collid</find>
@@ -67,6 +66,11 @@
       <find>overla</find>
       <find>collisionHandler</find>
       <find>gravity</find>
+      <find>tween.star</find>
+      <find>playerVeloY</find>
+      <find>physics</find>
+      <find>enablebody</find>
+      <find>tween</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -99,7 +103,7 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1254" />
+    <option name="width" value="1489" />
     <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -230,7 +234,7 @@
       <workItem from="1490100093939" duration="432000" />
       <workItem from="1490295454472" duration="4413000" />
       <workItem from="1490385173243" duration="7043000" />
-      <workItem from="1490553104677" duration="3813000" />
+      <workItem from="1490553104677" duration="9102000" />
     </task>
     <task id="LOCAL-00001" summary="* made wallBounce reuse func">
       <created>1490012802765</created>
@@ -372,14 +376,21 @@
       <option name="project" value="LOCAL" />
       <updated>1490455470560</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="* Added option to get down if jumping too high">
+      <created>1490557794151</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1490557794151</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33180000" />
+    <option name="totallyTimeSpent" value="38469000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1254" height="1032" extended-state="0" />
+    <frame x="0" y="0" width="1489" height="1032" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15917504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -426,7 +437,8 @@
     <MESSAGE value="* Created handleHorizontalCollision(sprite1, sprite2) function ans using it with enemy and player&#10;* Added indication of horizontal collision between enemy and player left and right&#10;" />
     <MESSAGE value="* Now when enemy is dead, can't move it again - solved the bug&#10;* Created handleHorizontalCollision(sprite1, sprite2) function ans using it with enemy and player&#10;* Added indication of horizontal collision between enemy and player left and right&#10;" />
     <MESSAGE value="* still have bug with side collision enemy and player" />
-    <option name="LAST_COMMIT_MESSAGE" value="* still have bug with side collision enemy and player" />
+    <MESSAGE value="* Added option to get down if jumping too high" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Added option to get down if jumping too high" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -492,6 +504,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/todos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/part1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -500,18 +520,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/todos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="49" lean-forward="false" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="171" column="33" lean-forward="false" selection-start-line="171" selection-start-column="33" selection-end-line="171" selection-end-column="33" />
+        <state relative-caret-position="266">
+          <caret line="240" column="56" lean-forward="true" selection-start-line="240" selection-start-column="56" selection-end-line="240" selection-end-column="56" />
           <folding />
         </state>
       </provider>

@@ -108,7 +108,7 @@ var GameState = {
 		cursors = game.input.keyboard.createCursorKeys();
 
 		// Tween: not working now...
-		// tween = game.add.tween(enemy).to( {x: '-50'}, 500, Phaser.Easing.Linear.None, false, 0, 0);
+		// tween = game.add.tween(enemy).to( {x: enemy.position.x - 50}, 500, Phaser.Easing.Linear.None, false, 0, 0);
 		// tween.onComplete.add(function(){tween.stop()});
 
 	},
@@ -153,23 +153,47 @@ game.state.add('GameState', GameState);
 // Launch game:
 game.state.start('GameState');
 
-function activateControls(sprite) {
-	sprite.body.velocity.x = 0;
+function activateControls() {
+	player.body.velocity.x = 0;
 	if (cursors.left.isDown) {
-		sprite.body.velocity.x = -150;
-		sprite.animations.play('left');
+		player.body.velocity.x = -150;
+		player.animations.play('left');
 	} else if (cursors.right.isDown) {
-		sprite.body.velocity.x = 150;
-		sprite.animations.play('right');
+		player.body.velocity.x = 150;
+		player.animations.play('right');
 	} else {
 		player.animations.stop();
-		sprite.frame = 4;
+		player.frame = 4;
 	}
 	// Allow player to jump if touching ground
+	handlePlayereJump();
+}
+
+function handlePlayereJump() {
+	var jumpAccelMultiplier = 0;
+	// Jump
 	if (cursors.up.isDown && player.body.touching.down) {
+		// console.log(cursors.up)
+		// console.log('cursors.up.durationMS', cursors.up.duration)
+		// let accVelocity = ((-cursors.up.duration / 3));
+
+		// Acceleration - v2
+
+
+		// Acceleration - v1
+		// let accMult = Math.floor(cursors.up.duration / 50)
+		// player.body.velocity.y = -50 * accMult;
+		// console.log('accMult', accMult, 'player velo y', player.body.velocity.y)
+		// if (accMult	=== 7) {
+		// 	accuMult = 0;
+		// }
+		// console.log('accVelocity', accVelocity)
+
+		// Basic Jump...
 		bounceUp(player);
+	// Dive down
 	} else if (cursors.down.isDown) {
-		sprite.body.velocity.y = 350;
+		player.body.velocity.y = 350;
 	}
 }
 
@@ -196,9 +220,10 @@ function handleHorizontalCollision(sprite1, sprite2) {
 	// Example: Enemy-sprite2 colliding with Player-Sprite1, collision from LEFT or RIGHT
 	if ((sprite2X - sprite1X) === 30 || (sprite2X - sprite1X) === 29 && isEnemyDead) {
 			console.log('colliding with body from left');
+
+			// Currently not working
 			// tween.start();
-			// tween.onComplete.add(delayBeforeAnotherKick, this);
-			// tween.onComplete.removeAll();
+
 			// console.log('enemy body', enemy.body)
 			// sprite2.immovable = false;
 			// sprite2.enableBody = true;
@@ -210,7 +235,12 @@ function handleHorizontalCollision(sprite1, sprite2) {
 			// 	sprite2.body.gravity.y = 0;
 			// },250)
 	} else if ((sprite2X - sprite1X) === -30 || (sprite2X - sprite1X) === -29 && isEnemyDead){
-			console.log('colliding with body from right')
+			console.log('colliding with body from right');
+
+			// Currently not working
+			// console.log('e pos x', enemy.position.x);
+			// tween.start();
+
 			// console.log('enemy body', enemy.body)
 			// sprite2.immovable = false;
 			// sprite2.enableBody = true;
@@ -239,6 +269,12 @@ function handleTopCollision(sprite1, sprite2) {
 			sprite2.enableBody = false;
 			isEnemyDead = true;
 			bounceUp(sprite1);
+
+			// Enemy died
+			console.log('e pos x', enemy.position.x);
+			// Tween keeps the location of which it is defined:
+			// tween = game.add.tween(enemy).to( {x: enemy.position.x - 20}, 500, Phaser.Easing.Linear.None, false, 0, 0);
+			// tween.onComplete.add(function(){tween.stop()});
 			// console.log('enemy new x ', enemy.body.position.x, 'e width', enemy.width)
 		}
 	}
