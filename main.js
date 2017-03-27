@@ -27,81 +27,11 @@ var GameState = {
 		// Adding sky background
 		game.add.sprite(0, 0, 'sky');
 
-		// The platforms group
-		platforms = game.add.group();
-		// Enable Physics for any object in this group
-		platforms.enableBody = true;
-
-		// Creating the gruond
-		var ground = platforms.create(0, game.world.height - 64, 'ground');
-		// Scale it to fit with of game:
-		ground.scale.setTo(2, 2);
-		// Stops ground from falling when jumping on it.
-		ground.body.immovable = true;
-
-		// Create two ledges
-		var ledge = platforms.create(400, 400, 'ground')
-
-		ledge.body.immovable = true;
-
-		ledge = platforms.create(-150, 250, 'ground');
-
-		ledge.body.immovable = true;
-
-		// The Player & settings
-		player = game.add.sprite(32, game.world.height - 150, 'dude');
-
-		// Enable Physics on Player
-		game.physics.arcade.enable(player);
-		// Player Physics Properties. slight bounce
-		player.body.bounce.y = 0.2;
-
-		player.body.gravity.y = 300;
-
-		player.body.collideWorldBounds = true;
-
-
-		// Two animations - walk left/right
-		// add(animationName, frames_array, frames_sec, loopBoolean)
-		player.animations.add('left', [0, 1, 2, 3], 10, true);
-		player.animations.add('right', [5, 6, 7, 8], 10, true);
-		player.animations.add('idle', [4], true);
-
-		enemy = game.add.sprite(50, 100, 'baddie');
-
-		game.physics.arcade.enable(enemy);
-
-		enemy.body.gravity.y = 100;
-
-		enemy.animations.play('walk', 10, true);
-
-		enemy.body.collideWorldBounds = true;
-
-		enemy.body.velocity.y = 300;
-
-		enemy.animations.add('left', [0, 1, 2, 3], 10, true);
-
-		enemy.animations.add('right', [5, 6, 7, 8], 10, true);
-
-		enemy.body.velocity.x = 100;
-
-		direction = 'right';
-		enemy.animations.play(direction);
-
-		// Starshine
-		stars = game.add.group();
-
-		stars.enableBody = true;
-
-		// Create 12 Stars:
-		for (var i = 0; i < 12; i++) {
-			// add star
-			var star = stars.create(i * 70, 0, 'star');
-			// gravity
-			star.body.gravity.y = 100;
-			// Random bounce value
-			star.body.bounce.y = 0.7 + Math.random() * 0.2;
-		}
+		createGround();
+		createLedges();
+		createPlayer();
+		createEnemy();
+		createStars();
 
 		// Set up score:
 		scoreText = game.add.text(16, 16, 'score: 0', {fontSize: '32px', fill: '#000'});
@@ -130,23 +60,10 @@ var GameState = {
 		// Check Player take star:
 		game.physics.arcade.overlap(player, stars, collectStar, null, this);
 
-
 		// Check Player hit Enemy
 		game.physics.arcade.overlap(player, enemy, collisionHandler, null, this);
 
-		// Check Enemy hit bounds
-		// console.log('enemy position x', enemy.position.x);
-		if (enemy.position.x === 768) {
-			// console.log('enemy collided right')
-			enemy.animations.stop();
-			enemy.body.velocity.x = enemyVeloLeftX;
-			enemy.animations.play('left');
-		} else if (enemy.position.x === 0) {
-			// console.log('enemy collided left')
-			enemy.animations.stop();
-			enemy.body.velocity.x = enemyVeloRightX;
-			enemy.animations.play('right');
-		}
+		handleEnemyBoundsCollision();
 	}
 };
 
@@ -206,7 +123,6 @@ function collectStar(player, star) {
 function collisionHandler(player, enemy) {
 	// Top Collision of Enemy:
 	handleTopCollision(player, enemy);
-
 	// Side Collision of Enemy:
 	handleHorizontalCollision(player, enemy);
 }
@@ -218,17 +134,13 @@ function handleHorizontalCollision(sprite1, sprite2) {
 	// Example: Enemy-sprite2 colliding with Player-Sprite1, collision from LEFT or RIGHT
 	if ((sprite2X - sprite1X) === 30 || (sprite2X - sprite1X) === 29 && isEnemyDead) {
 			// console.log('colliding with body from left');
-
 			// Currently not working
 			// tween.start();
-
 	} else if ((sprite2X - sprite1X) === -30 || (sprite2X - sprite1X) === -29 && isEnemyDead){
 			// console.log('colliding with body from right');
-
 			// Currently not working
 			// console.log('e pos x', enemy.position.x);
 			// tween.start();
-
 	}
 }
 
@@ -263,4 +175,103 @@ function bounceUp() {
 	player.body.velocity.y = (-300 -runJumpFactor);
 	runJumpFactor = 0;
 	// console.log('zeroize RJF in bounceUp')
+}
+
+function handleEnemyBoundsCollision() {
+	// Check Enemy hit bounds
+	if (enemy.position.x === 768) {
+		// console.log('enemy collided right')
+		enemy.animations.stop();
+		enemy.body.velocity.x = enemyVeloLeftX;
+		enemy.animations.play('left');
+	} else if (enemy.position.x === 0) {
+		// console.log('enemy collided left')
+		enemy.animations.stop();
+		enemy.body.velocity.x = enemyVeloRightX;
+		enemy.animations.play('right');
+	}
+}
+
+function createPlayer() {
+	// The Player & settings
+	player = game.add.sprite(32, game.world.height - 150, 'dude');
+
+	// Enable Physics on Player
+	game.physics.arcade.enable(player);
+	// Player Physics Properties. slight bounce
+	player.body.bounce.y = 0.2;
+
+	player.body.gravity.y = 300;
+
+	player.body.collideWorldBounds = true;
+
+	// Two animations - walk left/right
+	// add(animationName, frames_array, frames_sec, loopBoolean)
+	player.animations.add('left', [0, 1, 2, 3], 10, true);
+	player.animations.add('right', [5, 6, 7, 8], 10, true);
+	player.animations.add('idle', [4], true);
+}
+
+function createEnemy() {
+	enemy = game.add.sprite(50, 100, 'baddie');
+
+	game.physics.arcade.enable(enemy);
+
+	enemy.body.gravity.y = 100;
+
+	enemy.animations.play('walk', 10, true);
+
+	enemy.body.collideWorldBounds = true;
+
+	enemy.body.velocity.y = 300;
+
+	enemy.animations.add('left', [0, 1, 2, 3], 10, true);
+
+	enemy.animations.add('right', [5, 6, 7, 8], 10, true);
+
+	enemy.body.velocity.x = 100;
+
+	direction = 'right';
+	enemy.animations.play(direction);
+}
+
+function createStars() {
+	stars = game.add.group();
+
+	stars.enableBody = true;
+
+	// Create 12 Stars:
+	for (var i = 0; i < 12; i++) {
+		// add star
+		var star = stars.create(i * 70, 0, 'star');
+		// gravity
+		star.body.gravity.y = 100;
+		// Random bounce value
+		star.body.bounce.y = 0.7 + Math.random() * 0.2;
+	}
+}
+
+function createLedges() {
+	// Create two ledges
+	var ledge = platforms.create(400, 400, 'ground')
+
+	ledge.body.immovable = true;
+
+	ledge = platforms.create(-150, 250, 'ground');
+
+	ledge.body.immovable = true;
+}
+
+function createGround() {
+	// The platforms group
+	platforms = game.add.group();
+	// Enable Physics for any object in this group
+	platforms.enableBody = true;
+
+	// Creating the ground
+	var ground = platforms.create(0, game.world.height - 64, 'ground');
+	// Scale it to fit with of game:
+	ground.scale.setTo(2, 2);
+	// Stops ground from falling when jumping on it.
+	ground.body.immovable = true;
 }
