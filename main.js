@@ -176,18 +176,7 @@ function handlePlayereJump() {
 		// console.log(cursors.up)
 		// console.log('cursors.up.durationMS', cursors.up.duration)
 		// let accVelocity = ((-cursors.up.duration / 3));
-
-		// Acceleration - v2
-
-
-		// Acceleration - v1
-		// let accMult = Math.floor(cursors.up.duration / 50)
-		// player.body.velocity.y = -50 * accMult;
-		// console.log('accMult', accMult, 'player velo y', player.body.velocity.y)
-		// if (accMult	=== 7) {
-		// 	accuMult = 0;
-		// }
-		// console.log('accVelocity', accVelocity)
+		// TODO - add side-run-enhancing jump with higher fixed velocity(+50 for example)
 
 		// Basic Jump...
 		bounceUp(player);
@@ -224,16 +213,6 @@ function handleHorizontalCollision(sprite1, sprite2) {
 			// Currently not working
 			// tween.start();
 
-			// console.log('enemy body', enemy.body)
-			// sprite2.immovable = false;
-			// sprite2.enableBody = true;
-			// sprite2.animations.stop();
-			// sprite2.body.velocity.x = 50;
-			// sprite2.body.gravity.Y = 300;
-			// setTimeout(() => {
-			// 	sprite2.body.velocity = 0;
-			// 	sprite2.body.gravity.y = 0;
-			// },250)
 	} else if ((sprite2X - sprite1X) === -30 || (sprite2X - sprite1X) === -29 && isEnemyDead){
 			console.log('colliding with body from right');
 
@@ -241,16 +220,6 @@ function handleHorizontalCollision(sprite1, sprite2) {
 			// console.log('e pos x', enemy.position.x);
 			// tween.start();
 
-			// console.log('enemy body', enemy.body)
-			// sprite2.immovable = false;
-			// sprite2.enableBody = true;
-			// sprite2.animations.stop();
-			// sprite2.body.velocity.x = -50;
-			// sprite2.body.gravity.Y = 300;
-			// setTimeout(() => {
-			// 	sprite2.body.velocity = 0;
-			// 	sprite2.body.gravity.y = 0;
-			// },250)
 	}
 }
 
