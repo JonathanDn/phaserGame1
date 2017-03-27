@@ -3,7 +3,9 @@
 // TODO change events of end of screens X to --> collide between objects - study it. to get only 1 time event when enemy collides with it instead of more.
 
 
-var platforms, stars, cursors, player, scoreText, score = 0, direction;
+var platforms, stars, cursors, scoreText, score = 0;
+
+var player, direction, runJumpFactor = 0;
 
 var enemy, enemyVeloRightX = 100, enemyVeloLeftX = -100, isEnemyDead = false, isEnemyKicked = false;
 
@@ -123,7 +125,7 @@ var GameState = {
 		});
 
 		// Reset player's velocity
-		activateControls(player);
+		activateControls();
 
 		// Check Player take star:
 		game.physics.arcade.overlap(player, stars, collectStar, null, this);
@@ -158,31 +160,38 @@ function activateControls() {
 	if (cursors.left.isDown) {
 		player.body.velocity.x = -150;
 		player.animations.play('left');
+		checkRunJumpFactor(cursors.left.repeats)
 	} else if (cursors.right.isDown) {
 		player.body.velocity.x = 150;
 		player.animations.play('right');
+		checkRunJumpFactor(cursors.right.repeats);
+	// Stopped Running
 	} else {
 		player.animations.stop();
 		player.frame = 4;
+		runJumpFactor = 0;
 	}
 	// Allow player to jump if touching ground
-	handlePlayereJump();
+	handlePlayerJump();
 }
 
-function handlePlayereJump() {
+function checkRunJumpFactor(directionRepeats) {
+	// Check for runJumpFactor
+	if (directionRepeats === 30) {
+		runJumpFactor = 100;
+	}
+}
+
+function handlePlayerJump() {
 	var jumpAccelMultiplier = 0;
 	// Jump
 	if (cursors.up.isDown && player.body.touching.down) {
-		// console.log(cursors.up)
-		// console.log('cursors.up.durationMS', cursors.up.duration)
-		// let accVelocity = ((-cursors.up.duration / 3));
-		// TODO - add side-run-enhancing jump with higher fixed velocity(+50 for example)
-
 		// Basic Jump...
-		bounceUp(player);
+		bounceUp();
 	// Dive down
 	} else if (cursors.down.isDown) {
-		player.body.velocity.y = 350;
+		player.body.velocity.y = 250;
+		runJumpFactor = 0;
 	}
 }
 
@@ -208,13 +217,13 @@ function handleHorizontalCollision(sprite1, sprite2) {
 	// console.log('enemy', isEnemyDead, 'colliding with body', sprite2X - sprite1X)
 	// Example: Enemy-sprite2 colliding with Player-Sprite1, collision from LEFT or RIGHT
 	if ((sprite2X - sprite1X) === 30 || (sprite2X - sprite1X) === 29 && isEnemyDead) {
-			console.log('colliding with body from left');
+			// console.log('colliding with body from left');
 
 			// Currently not working
 			// tween.start();
 
 	} else if ((sprite2X - sprite1X) === -30 || (sprite2X - sprite1X) === -29 && isEnemyDead){
-			console.log('colliding with body from right');
+			// console.log('colliding with body from right');
 
 			// Currently not working
 			// console.log('e pos x', enemy.position.x);
@@ -224,8 +233,8 @@ function handleHorizontalCollision(sprite1, sprite2) {
 }
 
 function handleTopCollision(sprite1, sprite2) {
-	sprite1Y = Math.floor(player.body.position.y);
-	sprite2Y = Math.floor(enemy.body.position.y);
+	let sprite1Y = Math.floor(player.body.position.y);
+	let sprite2Y = Math.floor(enemy.body.position.y);
 
 	if (isEnemyDead === false) {
 		// Example: Player-sprite1 colliding with Enemy-sprite1 from the top part of sprite1.
@@ -240,7 +249,7 @@ function handleTopCollision(sprite1, sprite2) {
 			bounceUp(sprite1);
 
 			// Enemy died
-			console.log('e pos x', enemy.position.x);
+			// console.log('e pos x', enemy.position.x);
 			// Tween keeps the location of which it is defined:
 			// tween = game.add.tween(enemy).to( {x: enemy.position.x - 20}, 500, Phaser.Easing.Linear.None, false, 0, 0);
 			// tween.onComplete.add(function(){tween.stop()});
@@ -249,7 +258,9 @@ function handleTopCollision(sprite1, sprite2) {
 	}
 }
 
-function bounceUp(sprite) {
-	sprite.body.velocity.x = 0;
-	sprite.body.velocity.y = -350;
+function bounceUp() {
+	player.body.velocity.x = 0;
+	player.body.velocity.y = (-300 -runJumpFactor);
+	runJumpFactor = 0;
+	// console.log('zeroize RJF in bounceUp')
 }

@@ -1,5 +1,5 @@
 // *** Current ***
-// TODO - improve the jump - Add more force to jump(higher fix velocity) when the jump is after a few pixels moved in the x axis position of body.
+// DONE - improve the jump - Add more force to jump(higher fix velocity) when the jump is after a few pixels moved in the x axis position of body.
 
 
 // *** Backlog ***
