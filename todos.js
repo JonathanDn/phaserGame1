@@ -1,12 +1,14 @@
 // *** Current ***
+// TODO - spawn ++ enemy when enemy is killed and let the body stay. this way increasing the difficulty :)
 
 
 // *** Backlog ***
 
 // ** Logic **
+// TODO - handle game over - finish collecting stars.
+// TODO - enable double jump mid-air?
 // TODO - make enemy body moveable and move it if you collide with it left / right. make it move and bounce on x axis.
 // TODO - all this enter to function - handleEnemyKill();
-// TODO - spawn ++ enemy when enemy is killed and let the body stay. this way increasing the difficulty :)
 // TODO - handle hurting the player when enemey comes by right / left
 // TODO - enlarge map to also support revealing of new sections and more monsters / challanges / jumping over holes etc. (within this level for now)
 
