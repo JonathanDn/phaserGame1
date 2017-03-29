@@ -7,7 +7,7 @@ var platforms, stars, cursors, scoreText, score = 0;
 
 var player, direction, runJumpFactor = 0;
 
-var enemy, enemyVeloRightX = 100, enemyVeloLeftX = -100, isEnemyDead = false, isEnemyKicked = false;
+var enemies, enemy, enemyCount, deadEnemies, enemyVeloRightX = 100, enemyVeloLeftX = -100, isEnemyDead = false, isEnemyKicked = false;
 
 var tween;
 
@@ -30,7 +30,9 @@ var GameState = {
 		createGround();
 		createLedges();
 		createPlayer();
-		createEnemy();
+		createEnemiesGroup();
+		createDeadEnemiesGroup();
+
 		createStars();
 
 		// Set up score:
@@ -149,25 +151,38 @@ function handleTopCollision(sprite1, sprite2) {
 	let sprite2Y = Math.floor(enemy.body.position.y);
 
 	if (isEnemyDead === false) {
+		// Check if touching ground(not to kill mid-air)
 		// Example: Player-sprite1 colliding with Enemy-sprite1 from the top part of sprite1.
-		if (sprite1Y < sprite2Y && (sprite2Y - sprite1Y > 40)) {
-			sprite2.body.velocity.x = 0;
-			sprite2.animations.stop();
-			sprite2.frame = 4;
-			sprite2.angle += 90;
-			sprite2.position.y += ((sprite2.height / 2) + 5);
-			sprite2.enableBody = false;
-			isEnemyDead = true;
-			bounceUp(sprite1);
-
-			// Enemy died
-			// console.log('e pos x', enemy.position.x);
-			// Tween keeps the location of which it is defined:
-			// tween = game.add.tween(enemy).to( {x: enemy.position.x - 20}, 500, Phaser.Easing.Linear.None, false, 0, 0);
-			// tween.onComplete.add(function(){tween.stop()});
-			// console.log('enemy new x ', enemy.body.position.x, 'e width', enemy.width)
+		if (sprite1Y < sprite2Y && (sprite2Y - sprite1Y > 40 && sprite2.body.touching.down)) {
+			killEnemy(sprite2);
 		}
 	}
+}
+
+function killEnemy(sprite) {
+	// Only if touching platform / ground:
+	if (sprite.body.touching.down) {
+		sprite.body.velocity.y = 0;
+		sprite.body.velocity.x = 0;
+		sprite.animations.stop();
+		sprite.frame = 4;
+		sprite.angle += 90;
+		// let body fall to the ground before placing it
+		setTimeout(() => {
+			sprite.body.gravity = 0;
+			deadEnemies.add(enemy);
+		}, 750)
+	}
+	// Now that we don't have physics on the body drop it down:
+
+
+	// bounce up after kill
+	bounceUp(sprite);
+
+	// Create new Enemy:
+	enemy = createBaddieForGroup(enemies, 100, 50);
+	enemy.animations.play('right');
+	isEnemyDead = false;
 }
 
 function bounceUp() {
@@ -212,27 +227,32 @@ function createPlayer() {
 	player.animations.add('idle', [4], true);
 }
 
-function createEnemy() {
-	enemy = game.add.sprite(50, 100, 'baddie');
+function createEnemiesGroup() {
+	enemies = game.add.group();
+	enemies.enableBody = true;
+	enemies.physicsBodyType = Phaser.Physics.ARCADE;
 
-	game.physics.arcade.enable(enemy);
+	enemyCount = 1;
 
+	// Create one enemy for now
+	let baddie = createBaddieForGroup(enemies, 100, 50);
+	baddie.animations.play('right');
+}
+
+function createDeadEnemiesGroup() {
+	deadEnemies = game.add.group();
+}
+
+function createBaddieForGroup(group, x, y) {
+	enemy = group.create(x, y, 'baddie');
 	enemy.body.gravity.y = 100;
-
-	enemy.animations.play('walk', 10, true);
-
 	enemy.body.collideWorldBounds = true;
-
-	enemy.body.velocity.y = 300;
+	enemy.body.velocity.setTo(100, 50);
 
 	enemy.animations.add('left', [0, 1, 2, 3], 10, true);
-
 	enemy.animations.add('right', [5, 6, 7, 8], 10, true);
 
-	enemy.body.velocity.x = 100;
-
-	direction = 'right';
-	enemy.animations.play(direction);
+	return enemy
 }
 
 function createStars() {
