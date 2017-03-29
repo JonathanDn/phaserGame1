@@ -1,14 +1,14 @@
 // *** Current ***
-// TODO - spawn ++ enemy when enemy is killed and let the body stay. this way increasing the difficulty :)
-
+// TODO - everytime an enemy is killed = create ++ enemies - this way increasing the difficulty :)
 
 // *** Backlog ***
 
 // ** Logic **
+// TODO - add Debug logic text
+// TODO - handle enemy collision with player horizontally --> knockback player for now visually.
 // TODO - handle game over - finish collecting stars.
 // TODO - enable double jump mid-air?
-// TODO - make enemy body moveable and move it if you collide with it left / right. make it move and bounce on x axis.
-// TODO - all this enter to function - handleEnemyKill();
+// TODO - make enemy body moveable and move it if you collide with it left / right. make it move and bounce on x axis. - bodies jumping all over.
 // TODO - handle hurting the player when enemey comes by right / left
 // TODO - enlarge map to also support revealing of new sections and more monsters / challanges / jumping over holes etc. (within this level for now)
 
@@ -19,6 +19,8 @@
 // TODO - change platforms to something I will make.
 
 // *** DONE ***
+// DONE - spawn ++ enemy when enemy is killed and let the body stay.
+// DONE - all this enter to function - handleEnemyKill();
 // DONE - refactor all create code packs to functions:
 // 		createGround();
 // 		createLedges();

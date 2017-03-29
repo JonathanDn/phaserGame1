@@ -4,6 +4,7 @@
     <list default="true" id="9270026a-2437-42a2-9a47-226f5f39df7f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todos.js" afterPath="$PROJECT_DIR$/todos.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,8 +25,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="162" column="42" lean-forward="true" selection-start-line="162" selection-start-column="42" selection-end-line="162" selection-end-column="42" />
+            <state relative-caret-position="616">
+              <caret line="185" column="34" lean-forward="false" selection-start-line="185" selection-start-column="34" selection-end-line="185" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -34,8 +35,8 @@
       <file leaf-file-name="todos.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todos.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="45" lean-forward="false" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+            <state relative-caret-position="132">
+              <caret line="6" column="30" lean-forward="false" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -73,6 +74,8 @@
       <find>touchi</find>
       <find>ledgeledge</find>
       <find>platforms</find>
+      <find>createEne</find>
+      <find>bodyOnFloor</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -239,7 +242,7 @@
       <workItem from="1490553104677" duration="9119000" />
       <workItem from="1490609942686" duration="708000" />
       <workItem from="1490643648594" duration="5153000" />
-      <workItem from="1490786455195" duration="11514000" />
+      <workItem from="1490786455195" duration="16760000" />
     </task>
     <task id="LOCAL-00001" summary="* made wallBounce reuse func">
       <created>1490012802765</created>
@@ -423,11 +426,18 @@
       <option name="project" value="LOCAL" />
       <updated>1490648826145</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="* Created spawn for new enemy everytime one is dead.&#10;* enemy body falls to the ground and stays rendered --&gt; the sprite object moves to deadEnemies group - no more physics for it">
+      <created>1490801931004</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1490801931004</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55861000" />
+    <option name="totallyTimeSpent" value="61107000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="960" height="1032" extended-state="0" />
@@ -482,7 +492,8 @@
     <MESSAGE value="* Changed priority of tasks to run-jump instead of acceleration" />
     <MESSAGE value="* Added regular jump velocity &amp; jump after running higher velocity by 100" />
     <MESSAGE value="* Refactor create code packs to functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Refactor create code packs to functions" />
+    <MESSAGE value="* Created spawn for new enemy everytime one is dead.&#10;* enemy body falls to the ground and stays rendered --&gt; the sprite object moves to deadEnemies group - no more physics for it" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Created spawn for new enemy everytime one is dead.&#10;* enemy body falls to the ground and stays rendered --&gt; the sprite object moves to deadEnemies group - no more physics for it" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -620,8 +631,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/todos.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="45" lean-forward="false" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+        <state relative-caret-position="132">
+          <caret line="6" column="30" lean-forward="false" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -630,8 +641,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="162" column="42" lean-forward="true" selection-start-line="162" selection-start-column="42" selection-end-line="162" selection-end-column="42" />
+        <state relative-caret-position="616">
+          <caret line="185" column="34" lean-forward="false" selection-start-line="185" selection-start-column="34" selection-end-line="185" selection-end-column="34" />
           <folding />
         </state>
       </provider>

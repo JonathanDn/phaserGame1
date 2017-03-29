@@ -5,11 +5,9 @@
 
 var platforms, stars, cursors, scoreText, score = 0;
 
-var player, direction, runJumpFactor = 0;
+var player, runJumpFactor = 0;
 
-var enemies, enemy, enemyCount, deadEnemies, enemyVeloRightX = 100, enemyVeloLeftX = -100, isEnemyDead = false, isEnemyKicked = false;
-
-var tween;
+var enemies, enemy, enemyCount = 1, deadEnemies, enemyVeloRightX = 100, enemyVeloLeftX = -100, isEnemyDead = false, isEnemyKicked = false;
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO);
 var GameState = {
@@ -154,35 +152,41 @@ function handleTopCollision(sprite1, sprite2) {
 		// Check if touching ground(not to kill mid-air)
 		// Example: Player-sprite1 colliding with Enemy-sprite1 from the top part of sprite1.
 		if (sprite1Y < sprite2Y && (sprite2Y - sprite1Y > 40 && sprite2.body.touching.down)) {
-			killEnemy(sprite2);
+			resetEnemy(sprite2);
 		}
 	}
 }
 
-function killEnemy(sprite) {
+function resetEnemy(sprite) {
 	// Only if touching platform / ground:
 	if (sprite.body.touching.down) {
+		isEnemyDead = true;
 		sprite.body.velocity.y = 0;
 		sprite.body.velocity.x = 0;
 		sprite.animations.stop();
 		sprite.frame = 4;
 		sprite.angle += 90;
-		// let body fall to the ground before placing it
-		setTimeout(() => {
+		// let body fall to the ground before positioning it
+		game.time.events.add(750, () => {
 			sprite.body.gravity = 0;
+			// Remove Physics of body - move it to deadEnemies Group
 			deadEnemies.add(enemy);
-		}, 750)
+		});
 	}
-	// Now that we don't have physics on the body drop it down:
-
-
 	// bounce up after kill
 	bounceUp(sprite);
 
 	// Create new Enemy:
-	enemy = createBaddieForGroup(enemies, 100, 50);
-	enemy.animations.play('right');
+	enemyCount++;
 	isEnemyDead = false;
+
+	enemy = createBaddieForGroup(enemies, 100, 50);
+	enemy.animations.play('right')
+
+	// game.time.events.repeat(1500, enemyCount, () => {
+	// 	enemy = createBaddieForGroup(enemies, 100, 50);
+	// 	enemy.animations.play('right')
+	// });
 }
 
 function bounceUp() {
@@ -231,8 +235,6 @@ function createEnemiesGroup() {
 	enemies = game.add.group();
 	enemies.enableBody = true;
 	enemies.physicsBodyType = Phaser.Physics.ARCADE;
-
-	enemyCount = 1;
 
 	// Create one enemy for now
 	let baddie = createBaddieForGroup(enemies, 100, 50);
